@@ -1,5 +1,5 @@
 """
-https://adventofcode.com/2023/day/NN
+https://adventofcode.com/2023/day/N
 
 >>> test_input_str = '''aaa
 ... bbb
@@ -8,23 +8,17 @@ https://adventofcode.com/2023/day/NN
 aaa
 bbb
 ccc
+>>> main(open("input.txt", "r"))
+input-line-1
+input-line-2
+input-line-3
 """
 
-from typing import Generator
+from utils import get_input_provider
 
 
-def input_provider(input_str: str = None) -> Generator[str, None, None]:
-    if input_str:
-        for s in input_str.split("\n"):
-            yield s
-    else:
-        with open("input.txt", "r") as f:
-            for line in f:
-                yield line.rstrip()
-
-
-def main(input_str: str = None) -> None:
-    for line in input_provider(input_str):
+def main(input_obj) -> None:
+    for line in get_input_provider(input_obj):
         print(line)
 
 
